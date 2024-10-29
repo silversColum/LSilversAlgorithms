@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect4", "Connect4.csproj", "{5F811394-6A7C-43B0-9A0D-0AC4147ED513}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGame", "..\MazeGame\MazeGame.csproj", "{C1AE0EAD-15A5-47F3-8060-26829AF07B78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarShuffle", "..\WarShuffle\WarShuffle.csproj", "{BF4FB1BF-E521-4F47-B077-B970E5CDC702}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F811394-6A7C-43B0-9A0D-0AC4147ED513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F811394-6A7C-43B0-9A0D-0AC4147ED513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F811394-6A7C-43B0-9A0D-0AC4147ED513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F811394-6A7C-43B0-9A0D-0AC4147ED513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1AE0EAD-15A5-47F3-8060-26829AF07B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1AE0EAD-15A5-47F3-8060-26829AF07B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1AE0EAD-15A5-47F3-8060-26829AF07B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1AE0EAD-15A5-47F3-8060-26829AF07B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF4FB1BF-E521-4F47-B077-B970E5CDC702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4FB1BF-E521-4F47-B077-B970E5CDC702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4FB1BF-E521-4F47-B077-B970E5CDC702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4FB1BF-E521-4F47-B077-B970E5CDC702}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14364CD9-1626-4277-B0CD-30AE2A2D51DD}
+	EndGlobalSection
+EndGlobal
