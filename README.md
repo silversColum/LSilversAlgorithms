@@ -28,12 +28,14 @@ I also practiced using yield return in C#, making the iteration more efficient b
 For my maze game project, I worked with different algorithmic approaches to solve the maze:
 O(N²) Logic: A straightforward approach using a 2D array to represent the maze. I implemented a breadth-first search (BFS) to find the shortest path from the start to the goal, which has a time complexity of O(N²).
 O(2^N) Logic: I explored recursive backtracking to find all possible paths in the maze. This approach, while less efficient, was useful for understanding exponential growth in algorithm complexity and the challenges of solving problems with a large state space.
+
 Key Learnings:
 Comparing the efficiency of BFS versus recursive backtracking provided a clear demonstration of how different algorithms can impact performance based on the input size.
 The project helped me appreciate the importance of choosing the right algorithm based on the problem constraints.
 
 ### 4. Connect 4 Game Logic
 In this project, I implemented the logic for the classic game Connect 4, focusing on how to efficiently check for a win condition (4-in-a-row horizontally, vertically, or diagonally).
+
 Key Learnings:
 Implementing the win-check logic gave me experience with 2D array traversal and understanding pattern recognition in data structures.
 I learned how to optimize the win-check to avoid redundant checks, making the solution more efficient by only examining newly placed pieces rather than scanning the entire board.
