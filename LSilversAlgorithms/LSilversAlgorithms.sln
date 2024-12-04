@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BagIterator", "..\BagIterat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingAlgorithms", "..\SortingAlgorithms\SortingAlgorithms.csproj", "{DA2F97DB-0C7D-483A-88AD-129C5B9EDA43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchingAlgorithms", "..\SearchingAlgorithms\SearchingAlgorithms.csproj", "{7922F6FD-F8BD-4EE4-9379-E9DEF3CFC62A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DA2F97DB-0C7D-483A-88AD-129C5B9EDA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA2F97DB-0C7D-483A-88AD-129C5B9EDA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA2F97DB-0C7D-483A-88AD-129C5B9EDA43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7922F6FD-F8BD-4EE4-9379-E9DEF3CFC62A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7922F6FD-F8BD-4EE4-9379-E9DEF3CFC62A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7922F6FD-F8BD-4EE4-9379-E9DEF3CFC62A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7922F6FD-F8BD-4EE4-9379-E9DEF3CFC62A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
