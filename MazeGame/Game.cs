@@ -15,33 +15,22 @@ namespace MazeGame
 
         public void Start()
         {
-            // WriteLine("Game is Starting");
-
-            //SetCursorPosition(4, 2);
-            //Write("X");
-
             string[,] grid =
             {
-                { "W", "W", "W", "W", "W", "W", "W", "W", "W", "W" },
-                { "W", " ", "W", " ", "W", " ", "W", "W", " ", "W" },
-                { "W", " ", " ", " ", "W", " ", " ", " ", " ", "W" },
-                { "W", " ", "W", " ", " ", " ", " ", "W", " ", "W" },
-                { "W", " ", "W", "W", "W", "W", " ", "W", " ", "W" },
-                { "W", " ", " ", " ", " ", "W", " ", " ", " ", "W" },
-                { "W", "W ", "W ", "W", " ", "W", "W", "W", "X", "W" },
-                { "W", " ", " ", "W", " ", " ", " ", "W", " ", "W" },
-                { "W", "W", " ", "W", "W", "W", " ", "W", " ", "W" },
-                { "W", "W", "W", "W", "W", "W", "W", "W", "W", "W" }
-            };
+                    { "W", "W", "W", "W", "W", "W", "W", "W", "W", "W" },
+                    { "W", " ", "W", " ", "W", " ", "W", "W", " ", "W" },
+                    { "W", " ", " ", " ", "W", " ", " ", " ", " ", "W" },
+                    { "W", " ", "W", " ", " ", " ", " ", "W", " ", "W" },
+                    { "W", " ", "W", "W", "W", "W", " ", "W", " ", "W" },
+                    { "W", " ", " ", " ", " ", "W", " ", " ", " ", "W" },
+                    { "W", "W ", "W ", "W", " ", "W", "W", "W", "X", "W" },
+                    { "W", " ", " ", "W", " ", " ", " ", "W", " ", "W" },
+                    { "W", "W", " ", "W", "W", "W", " ", "W", " ", "W" },
+                    { "W", "W", "W", "W", "W", "W", "W", "W", "W", "W" }
+                };
 
             myWorld = new World(grid);
-            //myWorld.Draw();
-
             player = new Player(1, 1);
-            //player.Draw();
-
-            //WriteLine("press any key to exit...");
-            // ReadKey();
             GameLoop();
         }
 
@@ -51,10 +40,9 @@ namespace MazeGame
             myWorld.Draw();
             player.Draw();
         }
+
         private void PlayerInput()
         {
-            //read input 
-            //move x and y 
             ConsoleKeyInfo keyInfo = Console.ReadKey();
             ConsoleKey key = keyInfo.Key;
             switch (key)
@@ -85,6 +73,7 @@ namespace MazeGame
                     break;
             }
         }
+
         private void intro()
         {
             WriteLine("welcome to maze!");
@@ -97,6 +86,7 @@ namespace MazeGame
             WriteLine("> press any key to start");
             ReadKey();
         }
+
         private void outro()
         {
             Clear();
@@ -105,28 +95,88 @@ namespace MazeGame
             WriteLine("press any key to exit");
             ReadKey();
         }
+
         private void GameLoop()
         {
             intro();
-            while (true)
+            var path = DepthFirstSearch(player.X, player.Y, "X");
+            if (path != null)
             {
-                //draw evrything 
-                DrawFrame();
-
-                //check for player inpu from keyboard 
-                PlayerInput();
-                //has player reached exit? end game 
-                string thing = myWorld.getThing(player.X, player.Y);
-                if (thing == "X" || (player.X == 6 && player.Y == 8))
-                {
-                    break;
-                }
-                //give console chance to rennnder  
-                //https://www.youtube.com/watch?v=T0MpWTbwseg&list=PL-LDQE9x9hLwldZPPGwqXixr-_DfINfxk&index=2 
-                System.Threading.Thread.Sleep(30);
-                //break;
+                AnimatePath(path);
             }
             outro();
         }
+
+        private List<(int, int)> DepthFirstSearch(int startX, int startY, string target)
+        {
+            Stack<(int, int)> stack = new Stack<(int, int)>();
+            HashSet<(int, int)> visited = new HashSet<(int, int)>();
+            Dictionary<(int, int), (int, int)> parentMap = new Dictionary<(int, int), (int, int)>();
+
+            stack.Push((startX, startY));
+            visited.Add((startX, startY));
+
+            while (stack.Count > 0)
+            {
+                var (x, y) = stack.Pop();
+
+                if (myWorld.getThing(x, y) == target)
+                {
+                    return ConstructPath((x, y), parentMap);
+                }
+
+                foreach (var (nx, ny) in GetNeighbors(x, y))
+                {
+                    if (!visited.Contains((nx, ny)) && myWorld.IsWalkable(nx, ny))
+                    {
+                        stack.Push((nx, ny));
+                        visited.Add((nx, ny));
+                        parentMap[(nx, ny)] = (x, y);
+                    }
+                }
+            }
+
+            return null; // No path found
+        }
+
+        private List<(int, int)> ConstructPath((int, int) end, Dictionary<(int, int), (int, int)> parentMap)
+        {
+            List<(int, int)> path = new List<(int, int)>();
+            var current = end;
+
+            while (parentMap.ContainsKey(current))
+            {
+                path.Add(current);
+                current = parentMap[current];
+            }
+
+            path.Reverse();
+            return path;
+        }
+
+        private IEnumerable<(int, int)> GetNeighbors(int x, int y)
+        {
+            return new List<(int, int)>
+                {
+                    (x, y - 1), // Up
+                    (x, y + 1), // Down
+                    (x - 1, y), // Left
+                    (x + 1, y)  // Right
+                };
+        }
+
+        private void AnimatePath(List<(int, int)> path)
+        {
+            foreach (var (x, y) in path)
+            {
+                player.X = x;
+                player.Y = y;
+                DrawFrame();
+                System.Threading.Thread.Sleep(200); // Adjust the speed of animation
+            }
+        }
     }
 }
+
+
+
