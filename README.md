@@ -1,12 +1,6 @@
 # Algorithms Class Projects
 This repository contains the projects and assignments completed for my Algorithms class. Through these projects, I explored various algorithmic concepts, data structures, and problem-solving techniques, gaining a deeper understanding of efficiency and practical implementation.
 
-## Table of Contents
-Projects Overview
-1. Fisher-Yates Shuffle (War Card Game)
-2. Bag Iterator Assignment
-3. Maze Game (O(N^2) and O(2^N) Logic)
-4. Connect 4 Game Logic
 Lessons Learned
 ## Projects Overview
 ### 1. Fisher-Yates Shuffle (War Card Game)
